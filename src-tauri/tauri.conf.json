@@ -16,6 +16,9 @@
             "shell": {
                 "all": false,
                 "open": true
+            },
+            "window": {
+                "setDecorations": true
             }
         },
         "bundle": {
@@ -38,10 +41,13 @@
         },
         "windows": [
             {
+                "alwaysOnTop": true,
+                "decorations": false,
                 "fullscreen": false,
                 "height": 600,
                 "resizable": true,
                 "title": "dad-timer-overray",
+                "transparent": true,
                 "width": 800
             }
         ]
