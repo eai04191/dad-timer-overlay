@@ -54,21 +54,24 @@ function update(elapsedTime: number) {
         playAlertSound();
     }
 }
+async function main() {
+    await register("CommandOrControl+Shift+W", () => {
+        if (timer) {
+            timer.stop();
+        }
+        timer = new Timer(update);
+        timer.start();
+    });
 
-await register("CommandOrControl+Shift+W", () => {
-    if (timer) {
-        timer.stop();
-    }
-    timer = new Timer(update);
-    timer.start();
-});
+    await register("CommandOrControl+Shift+S", () => {
+        if (timer) {
+            timer.stop();
+            outputElement.innerText = "--:--";
+        }
+    });
 
-await register("CommandOrControl+Shift+S", () => {
-    if (timer) {
-        timer.stop();
-        outputElement.innerText = "--:--";
-    }
-});
+    // launch alert
+    playAlertSound();
+}
 
-// launch alert
-playAlertSound();
+main();
