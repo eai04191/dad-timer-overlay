@@ -1,7 +1,25 @@
-# Tauri + Vanilla TS
+# dad-timer-overlay
 
-This template should help get you started developing with Tauri in vanilla HTML, CSS and Typescript.
+[![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
 
-## Recommended IDE Setup
+This is a simple timer overlay for Dark and Darker.
 
--   [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+![image](https://user-images.githubusercontent.com/3516343/232247557-d772fff4-76e9-46df-84be-a9f8008b2e70.png)
+
+By starting the timer at the start of the game, you can check the opening time of the down gate in the ruin.
+
+## Warning
+
+1. This may violate the game's terms of service. Use at your own risk.
+2. All numbers are found by self-research and may be wrong or useless.
+   - Don't worry about the few seconds difference.
+3. Works on my machine (TM) with 1440p display, so it may not work on yours. Adjust some UI as needed.
+
+## Usage
+
+Just press `Control + Shift + W` when the game starts...
+
+## Stack
+
+- Tauri + Vanilla TS
+  - Of course Rust doesn't do anything for this

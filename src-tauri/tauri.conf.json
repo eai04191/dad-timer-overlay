@@ -13,6 +13,9 @@
     "tauri": {
         "allowlist": {
             "all": false,
+            "globalShortcut": {
+                "all": true
+            },
             "shell": {
                 "all": false,
                 "open": true
@@ -44,11 +47,13 @@
                 "alwaysOnTop": true,
                 "decorations": false,
                 "fullscreen": false,
-                "height": 600,
+                "height": 140,
                 "resizable": true,
                 "title": "dad-timer-overlay",
                 "transparent": true,
-                "width": 800
+                "width": 320,
+                "x": 2210,
+                "y": 960
             }
         ]
     }
