@@ -1,5 +1,5 @@
 /**
- * A simple timer class that calls a callback every second.
+ * A simple timer class that calls a callback every 100ms.
  */
 export class Timer {
     private intervalId: number | null;
