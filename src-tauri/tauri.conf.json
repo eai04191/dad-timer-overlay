@@ -47,13 +47,13 @@
                 "alwaysOnTop": true,
                 "decorations": false,
                 "fullscreen": false,
-                "height": 140,
+                "height": 146,
                 "resizable": true,
                 "title": "dad-timer-overlay",
                 "transparent": true,
-                "width": 320,
-                "x": 2210,
-                "y": 960
+                "width": 330,
+                "x": 2205,
+                "y": 930
             }
         ]
     }

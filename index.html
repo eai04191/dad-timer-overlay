@@ -6,16 +6,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Tauri App</title>
         <script type="module" src="/src/main.ts" defer></script>
+        <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-    <body>
-        <div class="container text-center opacity-80">
+    <body class="overflow-hidden">
+        <div class="container opacity-80 p-2">
             <div class="text-sm flex flex-col">
                 <p>Press <kbd>Ctrl + Shift + W</kbd> to Start the Timer.</p>
                 <p>Press <kbd>Ctrl + Shift + S</kbd> to Stop the Timer.</p>
             </div>
-            <div id="elapsedTime" class="font-mono">--:--</div>
+            <div id="elapsedTime" class="font-mono text-center">--:--</div>
+            <div class="flex justify-between gap-2 leading-tight">
+                <p id="gate-status-text">--</p>
+                <p id="gate-remaining-time">--</p>
+            </div>
         </div>
     </body>
 </html>

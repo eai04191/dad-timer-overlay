@@ -5,7 +5,15 @@ import { playAlertSound } from "./sound";
 
 let timer: Timer | null = null;
 let alertPlayed = false;
-const outputElement = document.querySelector("#elapsedTime") as HTMLDivElement;
+const elapsedTimeElement = document.querySelector(
+    "#elapsedTime"
+) as HTMLDivElement;
+const gateStatusTextElement = document.querySelector(
+    "#gate-status-text"
+) as HTMLDivElement;
+const gateRemainingTimeElement = document.querySelector(
+    "#gate-remaining-time"
+) as HTMLDivElement;
 
 // Format elapsed time in milliseconds to mm:ss
 function formatElapsedTime(elapsedTime: number): string {
@@ -32,14 +40,14 @@ function update(elapsedTime: number) {
     const gateOpenTime = 1000 * 60 * 7 + 1000 * 26;
     const isGateOpen = elapsedTime > gateOpenTime;
 
-    outputElement.innerText = [
-        `${elapsedTimeString} / ${remainingTimeString}`,
-        isGateOpen
-            ? "Gate is OPEN !"
-            : `Gate is closed. ${formatElapsedTime(
-                  gateOpenTime - elapsedTime
-              )} left.`,
-    ].join("\n");
+    elapsedTimeElement.innerText = `${elapsedTimeString} / ${remainingTimeString}`;
+
+    gateStatusTextElement.innerText = isGateOpen
+        ? "Gate is OPEN !"
+        : "Gate is closed.";
+    gateRemainingTimeElement.innerText = isGateOpen
+        ? ""
+        : `${formatElapsedTime(gateOpenTime - elapsedTime)} left.`;
 
     // open alert
     if (!alertPlayed && isGateOpen) {
@@ -50,7 +58,7 @@ function update(elapsedTime: number) {
     // done alert
     if (elapsedTime > totalTime) {
         timer?.stop();
-        outputElement.innerText = "--:--";
+        resetText();
         playAlertSound();
     }
 }
@@ -66,12 +74,18 @@ async function main() {
     await register("CommandOrControl+Shift+S", () => {
         if (timer) {
             timer.stop();
-            outputElement.innerText = "--:--";
+            resetText();
         }
     });
 
     // launch alert
     playAlertSound();
+}
+
+function resetText() {
+    elapsedTimeElement.innerText = "--:-- / --:--";
+    gateStatusTextElement.innerText = "--";
+    gateRemainingTimeElement.innerText = "--";
 }
 
 main();
